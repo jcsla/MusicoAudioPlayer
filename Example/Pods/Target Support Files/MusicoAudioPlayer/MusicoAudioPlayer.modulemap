@@ -1,0 +1,6 @@
+framework module MusicoAudioPlayer {
+  umbrella header "MusicoAudioPlayer-umbrella.h"
+
+  export *
+  module * { export * }
+}
