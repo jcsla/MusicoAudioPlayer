@@ -29,9 +29,9 @@
 
 /* Begin PBXFileReference section */
 		149B3DEDFFC6949E7CF1229F /* Pods-MusicoAudioPlayer_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicoAudioPlayer_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicoAudioPlayer_Tests/Pods-MusicoAudioPlayer_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		25059EEE5FB4F17D601818DB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		25059EEE5FB4F17D601818DB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		40BD00CCA9BF768B773DBF16 /* Pods-MusicoAudioPlayer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicoAudioPlayer_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicoAudioPlayer_Example/Pods-MusicoAudioPlayer_Example.release.xcconfig"; sourceTree = "<group>"; };
-		5C93FA21AF9B2CE95A03051A /* MusicoAudioPlayer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = MusicoAudioPlayer.podspec; path = ../MusicoAudioPlayer.podspec; sourceTree = "<group>"; };
+		5C93FA21AF9B2CE95A03051A /* MusicoAudioPlayer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MusicoAudioPlayer.podspec; path = ../MusicoAudioPlayer.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* MusicoAudioPlayer_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicoAudioPlayer_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		607FACE51AFB9204008FA782 /* MusicoAudioPlayer_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicoAudioPlayer_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		8705BA2E650FB32774239309 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		8705BA2E650FB32774239309 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8FB216699D92EA7953189954 /* Pods_MusicoAudioPlayer_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicoAudioPlayer_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA52528A805067BA88EE42CE /* Pods_MusicoAudioPlayer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicoAudioPlayer_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B6C62522CEAFA2E4DF2F8B /* Pods-MusicoAudioPlayer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicoAudioPlayer_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicoAudioPlayer_Example/Pods-MusicoAudioPlayer_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -215,10 +215,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 7RQY388A73;
 						LastSwiftMigration = 0820;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 7RQY388A73;
 						LastSwiftMigration = 0820;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -496,6 +498,7 @@
 			baseConfigurationReference = C9B6C62522CEAFA2E4DF2F8B /* Pods-MusicoAudioPlayer_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7RQY388A73;
 				INFOPLIST_FILE = MusicoAudioPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -510,6 +513,7 @@
 			baseConfigurationReference = 40BD00CCA9BF768B773DBF16 /* Pods-MusicoAudioPlayer_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7RQY388A73;
 				INFOPLIST_FILE = MusicoAudioPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -523,6 +527,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 149B3DEDFFC6949E7CF1229F /* Pods-MusicoAudioPlayer_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 7RQY388A73;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -543,6 +548,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D5629E0E63402B23877C51F6 /* Pods-MusicoAudioPlayer_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 7RQY388A73;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
