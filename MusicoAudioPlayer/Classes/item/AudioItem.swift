@@ -7,6 +7,7 @@
 //
 
 import AVFoundation
+import SDWebImage
 #if os(iOS) || os(tvOS)
     import UIKit
     import MediaPlayer
@@ -188,6 +189,16 @@ open class AudioItem: NSObject {
                     return MPMediaItemArtwork(image: image)
                 }
             #endif
+        }
+    }
+    
+    /// The artwork image url of the item.
+    open var artworkImageUrl: String? {
+        didSet {
+            let url = URL(string: self.artworkImageUrl!)
+            SDWebImageDownloader.shared().downloadImage(with: url, options: .useNSURLCache, progress: nil, completed: { (image, data, error, finished) in
+                self.artworkImage = image
+            })
         }
     }
 
