@@ -1,14 +1,15 @@
 use_frameworks!
 
 target 'MusicoAudioPlayer_Example' do
-  pod 'MusicoAudioPlayer', :path => '../'
-
-  target 'MusicoAudioPlayer_Tests' do
-    inherit! :search_paths
-
-    pod 'Quick', '~> 1.0.0'
-  pod 'Nimble', '~> 5.1.1'
-  pod 'FBSnapshotTestCase'
-  pod 'Nimble-Snapshots'
-  end
+    pod 'MusicoAudioPlayer', :path => '../'
+    pod 'SDWebImage', '~>3.8'
+    
+    target 'MusicoAudioPlayer_Tests' do
+        inherit! :search_paths
+        
+        pod 'Quick', '~> 1.0.0'
+        pod 'Nimble', '~> 5.1.1'
+        pod 'FBSnapshotTestCase'
+        pod 'Nimble-Snapshots'
+    end
 end

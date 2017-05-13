@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'MusicoAudioPlayer'
   s.version          = '0.1.0'
-s.summary          = 'MusicoAudioPlayer is a wrapper of AVPlayer.'
+  s.summary          = 'MusicoAudioPlayer is a wrapper of AVPlayer.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -36,5 +36,5 @@ s.summary          = 'MusicoAudioPlayer is a wrapper of AVPlayer.'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'SDWebImage', '~> 3.8'
 end
