@@ -195,10 +195,15 @@ open class AudioItem: NSObject {
     /// The artwork image url of the item.
     open var artworkImageUrl: String? {
         didSet {
-            let url = URL(string: self.artworkImageUrl!)
-            SDWebImageDownloader.shared().downloadImage(with: url, options: .useNSURLCache, progress: nil, completed: { (image, data, error, finished) in
+            let image = SDImageCache.shared().imageFromDiskCache(forKey: self.artworkImageUrl)
+            if image == nil {
+                let url = URL(string: self.artworkImageUrl!)
+                SDWebImageDownloader.shared().downloadImage(with: url, options: .useNSURLCache, progress: nil, completed: { (image, data, error, finished) in
+                    self.artworkImage = image
+                })
+            } else {
                 self.artworkImage = image
-            })
+            }
         }
     }
 
