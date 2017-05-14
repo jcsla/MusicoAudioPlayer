@@ -51,9 +51,6 @@ public struct AudioItemURL {
     
     /// The url of the stream.
     public let url: URL?
-    
-    /// The id to get url from server
-    public let id: Int
 
     /// Initializes an AudioItemURL.
     ///
@@ -64,17 +61,9 @@ public struct AudioItemURL {
         guard url != nil else { return nil }
 
         self.quality = quality
-        self.id = 0
         self.url = nil
     }
-    
-    public init?(quality: AudioQuality, id: Int?){
-        guard let id = id else { return nil }
 
-        self.quality = quality
-        self.id = id
-        self.url = nil
-    }
 }
 
 // MARK: - AudioItem
@@ -116,7 +105,6 @@ open class AudioItem: NSObject {
     public init?(soundURLs: [AudioQuality: URL]) {
         self.soundURLs = soundURLs
         super.init()
-
         if soundURLs.isEmpty {
             return nil
         }
@@ -166,6 +154,8 @@ open class AudioItem: NSObject {
     }
 
     // MARK: Additional properties
+    /// The id to get url from server
+    open let id: Int? = 0
     /// The artist of the item.
     ///
     /// This can change over time which is why the property is dynamic. It enables KVO on the property.

@@ -91,9 +91,9 @@ public class AudioPlayer: NSObject {
                 
                 //Sets new state
                 let info = currentItem.url(for: currentQuality)
-                let id = info.id
+                let id = currentItem.id
                                 
-                delegate?.audioPlayer(self, didGetStreamUrlFromId: currentItem, id: id, completionHandler: { (success:Bool, data:Any) -> Void in
+                delegate?.audioPlayer(self, didGetStreamUrlFromId: currentItem, id: id!, completionHandler: { (success:Bool, data:Any) -> Void in
                     if success {
                         if self.reachability.isReachable() || (info.url?.ap_isOfflineURL)! {
                             self.state = .buffering
