@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MusicoAudioPlayer'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'MusicoAudioPlayer is a wrapper of AVPlayer.'
 
 # This description is used to generate tags and improve search results.
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/jcsla/MusicoAudioPlayer'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'jcsla@naver.com' => 'jcsla@naver.com' }
+  # s.author           = { 'jcsla@naver.com' => 'jcsla@naver.com' }
   s.source           = { :git => 'https://github.com/jcsla/MusicoAudioPlayer.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
