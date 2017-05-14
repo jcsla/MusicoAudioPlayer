@@ -29,6 +29,11 @@ class ViewController: UIViewController, AudioPlayerDelegate {
         item?.artist = "artist"
         item?.artworkImageUrl = "https://i1.sndcdn.com/artworks-000221899583-k5171v-t500x500.jpg"
     }
+    
+    func foo(completionHandler: @escaping CompletionHandler){
+        print("foo")
+        completionHandler(false,"fail to foo")
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -36,6 +41,7 @@ class ViewController: UIViewController, AudioPlayerDelegate {
     }
 
     @IBAction func clickPlayBtn(_ sender: Any) {
+        print("clickPlayBtn")
         player?.play(item: item!)
     }
     
@@ -63,6 +69,11 @@ class ViewController: UIViewController, AudioPlayerDelegate {
     
     func audioPlayer(_ audioPlayer: AudioPlayer, didLoad range: TimeRange, for item: AudioItem) {
         print("didLoad")
+    }
+    
+    func audioPlayer(_ audioPlayer: AudioPlayer, didGetStreamUrlFromId: AudioItem, id: Int, completionHandler: @escaping CompletionHandler) {
+        print("didGetStreamUrlFromId on controller")
+        foo(completionHandler: completionHandler)
     }
     
     func setThumbnail(image: UIImage) {

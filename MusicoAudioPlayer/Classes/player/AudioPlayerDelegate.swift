@@ -64,19 +64,25 @@ public protocol AudioPlayerDelegate: class {
     ///   - range: The time range that the audio player loaded.
     ///   - item: Current item.
     func audioPlayer(_ audioPlayer: AudioPlayer, didLoad range: TimeRange, for item: AudioItem)
+    func audioPlayer(_ audioPlayer: AudioPlayer, didGetStreamUrlFromId: AudioItem, id: Int, completionHandler: @escaping CompletionHandler)
 }
+
+public typealias CompletionHandler = (Bool, Any) -> Void
 
 public extension AudioPlayerDelegate {
     func audioPlayer(_ audioPlayer: AudioPlayer, didChangeStateFrom from: AudioPlayerState,
-                     to state: AudioPlayerState) {}
+                     to state: AudioPlayerState) { }
 
-    func audioPlayer(_ audioPlayer: AudioPlayer, willStartPlaying item: AudioItem) {}
+    func audioPlayer(_ audioPlayer: AudioPlayer, willStartPlaying item: AudioItem) { }
 
-    func audioPlayer(_ audioPlayer: AudioPlayer, didUpdateProgressionTo time: TimeInterval, percentageRead: Float) {}
+    func audioPlayer(_ audioPlayer: AudioPlayer, didUpdateProgressionTo time: TimeInterval, percentageRead: Float) { }
 
-    func audioPlayer(_ audioPlayer: AudioPlayer, didFindDuration duration: TimeInterval, for item: AudioItem) {}
+    func audioPlayer(_ audioPlayer: AudioPlayer, didFindDuration duration: TimeInterval, for item: AudioItem) { }
 
-    func audioPlayer(_ audioPlayer: AudioPlayer, didUpdateEmptyMetadataOn item: AudioItem, withData data: Metadata) {}
+    func audioPlayer(_ audioPlayer: AudioPlayer, didUpdateEmptyMetadataOn item: AudioItem, withData data: Metadata) { }
 
-    func audioPlayer(_ audioPlayer: AudioPlayer, didLoad range: TimeRange, for item: AudioItem) {}
+    func audioPlayer(_ audioPlayer: AudioPlayer, didLoad range: TimeRange, for item: AudioItem) { }
+
+    func audioPlayer(_ audioPlayer: AudioPlayer, didGetStreamUrlFromId: AudioItem, id: Int, completionHandler: @escaping CompletionHandler) { }
+
 }

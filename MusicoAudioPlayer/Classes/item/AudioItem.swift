@@ -32,15 +32,28 @@ public enum AudioQuality: Int {
     case high = 2
 }
 
+// MARK: - AudioQuality
+
+/// `AudioQuality` differentiates qualities for audio.
+///
+/// -
+public protocol StreamUrl {
+    func getStreamingUrl(id:Int)
+}
+
+
 // MARK: - AudioItemURL
 
 /// `AudioItemURL` contains information about an Item URL such as its quality.
 public struct AudioItemURL {
     /// The quality of the stream.
     public let quality: AudioQuality
-
+    
     /// The url of the stream.
-    public let url: URL
+    public let url: URL?
+    
+    /// The id to get url from server
+    public let id: Int
 
     /// Initializes an AudioItemURL.
     ///
@@ -48,10 +61,19 @@ public struct AudioItemURL {
     ///   - quality: The quality of the stream.
     ///   - url: The url of the stream.
     public init?(quality: AudioQuality, url: URL?) {
-        guard let url = url else { return nil }
+        guard url != nil else { return nil }
 
         self.quality = quality
-        self.url = url
+        self.id = 0
+        self.url = nil
+    }
+    
+    public init?(quality: AudioQuality, id: Int?){
+        guard let id = id else { return nil }
+
+        self.quality = quality
+        self.id = id
+        self.url = nil
     }
 }
 
@@ -125,6 +147,8 @@ open class AudioItem: NSObject {
             AudioItemURL(quality: .medium, url: soundURLs[.medium]) ??
             AudioItemURL(quality: .high, url: soundURLs[.high]))!
     }
+    
+    
 
     /// Returns an URL that best fits a given quality.
     ///
@@ -142,7 +166,6 @@ open class AudioItem: NSObject {
     }
 
     // MARK: Additional properties
-
     /// The artist of the item.
     ///
     /// This can change over time which is why the property is dynamic. It enables KVO on the property.

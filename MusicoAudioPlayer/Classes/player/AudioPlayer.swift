@@ -45,7 +45,7 @@ public class AudioPlayer: NSObject {
 
     /// The retry event producer.
     var retryEventProducer = RetryEventProducer()
-
+    
     // MARK: Player
 
     /// The queue containing items to play.
@@ -88,31 +88,43 @@ public class AudioPlayer: NSObject {
 
                 //Ensures the audio session got started
                 setAudioSession(active: true)
-
+                
                 //Sets new state
                 let info = currentItem.url(for: currentQuality)
-                if reachability.isReachable() || info.url.ap_isOfflineURL {
-                    state = .buffering
-                    backgroundHandler.beginBackgroundTask()
-                } else {
-                    stateWhenConnectionLost = .buffering
-                    state = .waitingForConnection
-                    backgroundHandler.beginBackgroundTask()
-                    return
-                }
-
-                //Creates new player
-                player = AVPlayer(url: info.url)
-                currentQuality = info.quality
-
-                //Updates information on the lock screen
-                updateNowPlayingInfoCenter()
-
-                //Calls delegate
-                if oldValue != currentItem {
-                    delegate?.audioPlayer(self, willStartPlaying: currentItem)
-                }
-                player?.rate = rate
+                let id = info.id
+                
+                print("currentItem didset")
+                
+                delegate?.audioPlayer(self, didGetStreamUrlFromId: currentItem, id: id, completionHandler: { (success:Bool, data:Any) -> Void in
+                    if success {
+                        print("didGetStreamUrlFromId(). success!!!")
+                        if self.reachability.isReachable() || (info.url?.ap_isOfflineURL)! {
+                            self.state = .buffering
+                            self.backgroundHandler.beginBackgroundTask()
+                        } else {
+                            self.stateWhenConnectionLost = .buffering
+                            self.state = .waitingForConnection
+                            self.backgroundHandler.beginBackgroundTask()
+                            return
+                        }
+                        
+                        //Creates new player
+                        self.player = AVPlayer(url: info.url!)
+                        self.currentQuality = info.quality
+                        
+                        //Updates information on the lock screen
+                        self.updateNowPlayingInfoCenter()
+                        
+                        //Calls delegate
+                        if oldValue != currentItem {
+                            self.delegate?.audioPlayer(self, willStartPlaying: currentItem)
+                        }
+                        self.player?.rate = self.rate
+                    }else{
+                        let errorMessage = data as! String
+                        print(errorMessage)
+                    }
+                })
             } else {
                 stop()
             }
