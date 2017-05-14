@@ -3,6 +3,7 @@ use_frameworks!
 target 'MusicoAudioPlayer_Example' do
     pod 'MusicoAudioPlayer', :path => '../'
     pod 'SDWebImage', '~>3.8'
+    pod 'SwiftLint'
     
     target 'MusicoAudioPlayer_Tests' do
         inherit! :search_paths
